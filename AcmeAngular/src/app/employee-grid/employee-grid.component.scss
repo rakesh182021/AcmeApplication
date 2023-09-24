@@ -1,0 +1,65 @@
+/* Structure */
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+
+  .mat-input-element {
+    height: 45px !important;
+}
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  .loader{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+}
+
+.right {
+  float: right;
+}
+
+.button{
+  color: white !important;
+  height: 35px;
+  width: 145px;
+    position: relative;
+  background: blue;
+}
+
+.mat-row,
+.mat-header-row {
+  background-color: #f0f0f0;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding: 10px;
+}
+
+.mat-row:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+.heading{
+    padding: 2%;
+    font-size: 20px;
+    font-style: normal;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}

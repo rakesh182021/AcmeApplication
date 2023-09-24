@@ -1,0 +1,96 @@
+<mat-label class="heading">Employee Management</mat-label> <br /><br />
+<div class="example-container mat-elevation-z8">
+  <mat-spinner class="loader" *ngIf="isLoading"></mat-spinner>
+  <br />
+  <div class="example-header">
+    <span>
+      <mat-form-field appearance="outline">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter" />
+      </mat-form-field>
+    </span>
+    <span class="right">
+      <button
+        class="button"
+        mat-button
+        color="primary"
+        (click)="AddEmployee()"
+        style="float: right"
+      >
+        Add Person
+      </button>
+    </span>
+  </div>
+
+  <br />
+  <mat-table #table [dataSource]="dataSource">
+    <!-- firstname Column -->
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.firstName }} </mat-cell>
+    </ng-container>
+
+    <!-- lastname Column -->
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.lastName }} </mat-cell>
+    </ng-container>
+
+    <!-- Employee number Column -->
+    <ng-container matColumnDef="employeeNumber">
+      <mat-header-cell *matHeaderCellDef> Employee Number </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a href="javascript:void(0);" target="_self">{{
+          element.employeeNumber
+        }}</a>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Birth Column -->
+    <ng-container matColumnDef="birthDate">
+      <mat-header-cell *matHeaderCellDef> Birth Date </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.birthDate | date }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Employee date Column -->
+    <ng-container matColumnDef="employeeDate">
+      <mat-header-cell *matHeaderCellDef> Employee Date </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.employeeDate | date }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- Termination Column -->
+    <ng-container matColumnDef="terminationDate">
+      <mat-header-cell *matHeaderCellDef> Termination Date </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        ${{ element.terminationDate | date }}
+      </mat-cell>
+    </ng-container>
+
+    <!-- edit Column -->
+    <ng-container matColumnDef="edit/delete">
+      <mat-header-cell *matHeaderCellDef> Edit/Delete </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon
+          aria-hidden="false"
+          style="color: blue"
+          aria-label="edit icon"
+          (click)="Edit(element)"
+          >edit</mat-icon
+        >
+        &nbsp;&nbsp;
+        <mat-icon
+          aria-hidden="false"
+          style="color: red"
+          (click)="Delete(element)"
+          >delete</mat-icon
+        >
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

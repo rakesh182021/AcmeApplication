@@ -1,0 +1,103 @@
+<mat-label class="heading">Add/Edit Employee</mat-label> <br /><br />
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="First Name"
+            type="text"
+            formControlName="firstName"
+          />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder="Last Name"
+            type="text"
+            formControlName="lastName"
+          />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Employee Number</mat-label>
+          <input
+            matInput
+            placeholder="Employee Number"
+            type="text"
+            formControlName="employeeNumber"
+          />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Birth Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="birthDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Employee Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="employeeDate"
+            formControlName="employeeDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="employeeDate"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #employeeDate></mat-datepicker>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field appearance="outline">
+          <mat-label>Termination Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="terminationDate"
+            formControlName="terminatedDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="terminationDate"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #terminationDate></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <button
+          type="submit"
+          class="button"
+          mat-button
+          color="primary"
+          style="float: right"
+        >
+          Submit
+        </button>
+      </td>
+    </tr>
+  </table>
+</form>
